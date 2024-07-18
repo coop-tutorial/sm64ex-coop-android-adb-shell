@@ -6,7 +6,7 @@ Sm64ex-coop coop-crash solved
 > [!TIP]
 > COPIAR Y PEGAR ESTE COMANDO EN TERMUX PARA EJECUTARLO Y HACER EL PROCESO AUTOMÁTICAMENTE 📢
 ```
-bash <(curl -Ls https://raw.githubusercontent.com/coop-tutorial/sm64ex-coop-android-adb-shell/main/coop-adb.sh)
+curl -O https://raw.githubusercontent.com/coop-tutorial/sm64ex-coop-android-adb-shell/main/coop-adb.sh && chmod +x coop-adb.sh && bash coop-adb.sh
 ```
 * después de eso poner tu `ip:puerto`
  
