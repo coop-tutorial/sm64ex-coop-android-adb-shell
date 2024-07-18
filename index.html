@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sm64ex-coop Android ADB Shell</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            margin: 0;
+        }
+        h1, h2 {
+            color: #ffffff;
+        }
+        a {
+            color: #1e90ff;
+        }
+        pre, code {
+            background-color: #1e1e1e;
+            color: #dcdcdc;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        button {
+            background-color: #1e90ff;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #1c86ee;
+        }
+        .tip {
+            background-color: #2e2e2e;
+            border-left: 5px solid #1e90ff;
+            padding: 10px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .button-container {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>sm64ex-coop Android ADB Shell</h1>
+    <p>Solución para el coop-crash de Sm64ex-coop.</p>
+
+    <h2>Comando para conectarse adb shell pantalla dividida como en el video</h2>
+    <div class="tip">
+        <strong>TIP:</strong> COPIAR Y PEGAR ESTE COMANDO EN TERMUX PARA EJECUTARLO Y HACER EL PROCESO AUTOMÁTICAMENTE 📢
+    </div>
+    <pre id="command"><code>curl -O https://raw.githubusercontent.com/coop-tutorial/sm64ex-coop-android-adb-shell/main/coop-adb.sh && chmod +x coop-adb.sh && bash coop-adb.sh</code></pre>
+    <div class="button-container">
+        <button id="copy-button">Copiar Comando</button>
+    </div>
+    <p>Después de eso poner tu <code>ip:puerto</code>.</p>
+    <p>Después <code>codigo de verificación</code>.</p>
+    <p>Después el <code>ip:puerto</code> de arriba como en el video y listo 💯.</p>
+
+    <p>Los comandos se ejecutarán de forma automática y ya no necesitarás entrar al link de los comandos en inglés y raros 😊.</p>
+
+    <h2>Video</h2>
+    <p><a href="https://youtu.be/GZ1lXvqK3Yk" target="_blank">Ver Video guía aquí</a></p>
+
+    <button id="share-button">Compartir Página</button>
+
+    <script>
+        document.getElementById('copy-button').addEventListener('click', () => {
+            const commandText = document.getElementById('command').innerText;
+            navigator.clipboard.writeText(commandText).then(() => {
+                alert('Comando copiado al portapapeles.');
+            }).catch(err => {
+                console.error('Error al copiar el comando:', err);
+            });
+        });
+
+        document.getElementById('share-button').addEventListener('click', async () => {
+            if (navigator.share) {
+                try {
+                    await navigator.share({
+                        title: 'sm64ex-coop Android ADB Shell',
+                        text: 'Mira esta guía sobre cómo solucionar el coop-crash de Sm64ex-coop en Android.',
+                        url: 'https://coop-tutorial.github.io/adbshell'
+                    });
+                    console.log('Contenido compartido exitosamente');
+                } catch (err) {
+                    console.error('Error al compartir:', err);
+                }
+            } else {
+                alert('La función de compartir no está soportada en este navegador.');
+            }
+        });
+    </script>
+</body>
+</html>
